@@ -34,7 +34,7 @@ The parameter names are defined within the script(s) via the methods <code>getRe
 simply return an array of strings representing the parameters names.
 
 <h3>Detector de reflexión de carga útil</h3>
-Indicates in the State column of results table if one of the injected payloads were found in the response, using "<img src="images/reflected_icon.png"> Reflected".<br>
+Indicates in the State column of results table if one of the injected payloads were found in the clusterReference, using "<img src="images/reflected_icon.png"> Reflected".<br>
 <strong>Nota:</strong> This processor is automatically added to the list of processors.
 
 <h3>Solicitud de actualización de longitud de contenido</h3>
@@ -43,7 +43,7 @@ for all request methods. No change is done if the size of the request body is ze
 <strong>Nota:</strong> This processor is automatically added to the list of processors.
 
 <h3>Creador de etiqueta</h3>
-Allows to add custom ‘tags’, based on contents of the response, to the State column of the results table
+Allows to add custom ‘tags’, based on contents of the clusterReference, to the State column of the results table
 
 <h3>Procesador de mensajes del usuario</h3>
 Allows to fuzz as a user, using one of the users defined in the contexts that include the HTTP message being fuzzed. Users must

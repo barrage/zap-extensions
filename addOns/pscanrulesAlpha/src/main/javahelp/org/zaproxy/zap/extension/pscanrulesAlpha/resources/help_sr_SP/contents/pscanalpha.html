@@ -21,7 +21,7 @@ Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns
  <li><b>ASP.NET ViewState Integrity:</b> The application does not use a Message Authentication Code (MAC) to protect the integrity of the ASP.NET ViewState, which can be tampered with by a malicious client</li>
  <li><b>Base64 Disclosure:</b> Base64 encoded data was disclosed by the application/web server</li>
 </ul>
-<strong>Note:</strong> At Low Threshold all occurrences within each response will be included.
+<strong>Note:</strong> At Low Threshold all occurrences within each clusterReference will be included.
 <p>
 Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/pscanrulesAlpha/src/main/java/org/zaproxy/zap/extension/pscanrulesAlpha/Base64Disclosure.java">Base64Disclosure.java</a>
 
@@ -55,7 +55,7 @@ The Cross-Origin-Embedder-Policy (COEP) header <q>prevents a document from
  The Cross-Origin-Resource-Policy (CORP) header allows you
  to control the set of origins that are empowered to include
  a resource. It is a robust defense against attacks like Spectre,
- as it allows browsers to block a given response before it enters
+ as it allows browsers to block a given clusterReference before it enters
  an attacker's process.
 </blockquote>
 For example, an attacker site can include an image tag with an attribute
@@ -85,8 +85,8 @@ For more details see: <a href="https://www.zaproxy.org/blog/2014-04-03-hacking-z
 Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/pscanrulesAlpha/src/main/java/org/zaproxy/zap/extension/pscanrulesAlpha/ExampleSimplePassiveScanRule.java">ExampleSimplePassiveScanRule.java</a>
 
 <h2>In Page Banner Information Leak</h2>
-Analyzes response body content for the presence of web or application server banners (when the responses have error status codes).<br>
-If the Threshold is Low then status 200 - Ok responses are analyzed as well.<br>
+Analyzes clusterReference body content for the presence of web or application server banners (when the crefs have error status codes).<br>
+If the Threshold is Low then status 200 - Ok crefs are analyzed as well.<br>
 The presence of such banners may facilitate more targeted attacks against known vulnerabilities.
 <p>
 Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/pscanrulesAlpha/src/main/java/org/zaproxy/zap/extension/pscanrulesAlpha/InPageBannerInfoLeakScanRule.java">InPageBannerInfoLeakScanRule.java</a>
@@ -101,7 +101,7 @@ JSO are a type of vulnerabilities associated to A8:2017-Insecure Deserialization
 Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/pscanrulesAlpha/src/main/java/org/zaproxy/zap/extension/pscanrulesAlpha/JsoScanRule.java">JsoScanRule.java</a>
 
 <h2>Permissions Policy Header Not Set</h2>
-This rule checks the HTTP response headers (on HTML and JavaScript responses) for inclusion of a "Permissions-Policy" header, 
+This rule checks the HTTP clusterReference headers (on HTML and JavaScript crefs) for inclusion of a "Permissions-Policy" header,
 and alerts if one is not found.<br>
 Redirects are ignored except at the Low threshold.
 <p>
@@ -121,9 +121,9 @@ Note: A suggested integrity hash value will be present in the relevant Alert's O
 Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/pscanrulesAlpha/src/main/java/org/zaproxy/zap/extension/pscanrulesAlpha/SubResourceIntegrityAttributeScanRule.java">SubResourceIntegrityAttributeScanRule.java</a>
 
 <h2>Dangerous JS Functions</h2>
-This scan rule checks for any dangerous JS functions present in a site response.<br>
+This scan rule checks for any dangerous JS functions present in a site clusterReference.<br>
 <strong>Note:</strong> If the Custom Payloads addon is installed you can add your own function names (payloads) in the Custom Payloads options panel.
-They will also be searched for in responses as they're passively scanned. Keep in mind that the greater the number of payloads the greater the amount of time needed to passively scan.
+They will also be searched for in crefs as they're passively scanned. Keep in mind that the greater the number of payloads the greater the amount of time needed to passively scan.
 <strong>Note:</strong> &dollar; is stripped from the start of the strings/payloads and is optionally included when the patterns are assembled.
 <p>
 Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/pscanrulesAlpha/src/main/java/org/zaproxy/zap/extension/pscanrulesAlpha/JsFunctionScanRule.java">JsFunctionScanRule.java</a>

@@ -10859,7 +10859,7 @@ mozilla.inc.php
 msie.inc.php
 msnbot.inc.php
 opera.inc.php
-responses.inc.php
+crefs.inc.php
 safari.inc.php
 screener.inc.php
 whitelist.inc.php
@@ -20859,7 +20859,7 @@ TestMethodStatic.tpl.dist
 step3.html
 screens.php
 initialization.php
-response.html
+clusterReference.html
 pp
 delcomment.php
 takelogin.php
@@ -25412,7 +25412,7 @@ Adminstatus.php
 Leftnav.php
 query.test.php
 request.test.php
-response.test.php
+clusterReference.test.php
 server.test.php
 pkg
 EventLog.class.php
@@ -33676,7 +33676,7 @@ test_error.php
 Alanden_.ttf
 Boards.tpl
 archives.tpl
-class.response.php
+class.clusterReference.php
 Search_0.php
 ajouter.php
 1.8.0

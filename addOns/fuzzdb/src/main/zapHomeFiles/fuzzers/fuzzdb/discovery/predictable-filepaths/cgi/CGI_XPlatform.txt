@@ -3321,7 +3321,7 @@ servlet/SessionManager
 servlet/SessionServlet
 servlet/SimpleServlet
 servlet/SnoopServlet
-servlet/admin?category=server&method=listAll&Authorization=Digest+username%3D%22admin%22%2C+response%3D%22ae9f86d6beaa3f9ecb9a5b7e072a4138%22%2C+nonce%3D%222b089ba7985a883ab2eddcd3539a6c94%22%2C+realm%3D%22a
+servlet/admin?category=server&method=listAll&Authorization=Digest+username%3D%22admin%22%2C+clusterReference%3D%22ae9f86d6beaa3f9ecb9a5b7e072a4138%22%2C+nonce%3D%222b089ba7985a883ab2eddcd3539a6c94%22%2C+realm%3D%22a
 servlet/allaire.jrun.ssi.SSIFilter
 servlet/com.livesoftware.jrun.plugins.ssi.SSIFilter
 servlet/com.newatlanta.servletexec.JSP10Servlet/

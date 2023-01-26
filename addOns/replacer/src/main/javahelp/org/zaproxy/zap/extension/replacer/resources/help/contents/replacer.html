@@ -8,7 +8,7 @@ Replacer
 </HEAD>
 <BODY>
 <H1>Replacer</H1>
-The replacer is an easy way to replace strings in requests and responses.
+The replacer is an easy way to replace strings in requests and crefs.
 <p>
 It is accessible via the Options and by default it can be quickly accessed via the '&lt;ctrl&gt; R' hotkey.
 <p>
@@ -46,11 +46,11 @@ If the header is not present and the replacement text is not empty then the head
 
 <h4>Response Header String</h4>
 In this case the 'Match String' will be treated as a string or regex expression.
-If it is present in the response header then it will be replaced by the replacement text.
+If it is present in the clusterReference header then it will be replaced by the replacement text.
 
 <h4>Response Body String</h4>
 In this case the 'Match String' will be treated as a string or regex expression.
-If it is present in the response body then it will be replaced by the replacement text.
+If it is present in the clusterReference body then it will be replaced by the replacement text.
 
 <h3>Match String</h3>
 The string that will be used to identify what should be replaced - see Match Type for details.

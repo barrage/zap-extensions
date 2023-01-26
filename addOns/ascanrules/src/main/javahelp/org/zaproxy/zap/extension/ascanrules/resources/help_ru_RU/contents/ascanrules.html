@@ -54,9 +54,9 @@ The following release status active scan rules are included in this add-on:
 включая атрибуты тегов, атрибуты URL, атрибуты в тегах, которые поддерживают атрибуты src, html-комментарии и т. д.  <br>
 Note: <br>
 This rule only scans HTTP PUT requests at LOW threshold.<br>
-If the alert threshold is set to LOW, XSS injection located in a JSON response results in a LOW risk and LOW confidence alert is raised.
-For other response content-types a LOW confidence alert is raised.<br>
-If the alert threshold is set to either MEDIUM or HIGH, XSS injection located in non-HTML responses do not generate alerts.<br>
+If the alert threshold is set to LOW, XSS injection located in a JSON clusterReference results in a LOW risk and LOW confidence alert is raised.
+For other clusterReference content-types a LOW confidence alert is raised.<br>
+If the alert threshold is set to either MEDIUM or HIGH, XSS injection located in non-HTML crefs do not generate alerts.<br>
 <p>
 Последний код: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/ascanrules/src/main/java/org/zaproxy/zap/extension/ascanrules/CrossSiteScriptingScanRule.java"> CrossSiteScriptingScanRule.java </a>
 

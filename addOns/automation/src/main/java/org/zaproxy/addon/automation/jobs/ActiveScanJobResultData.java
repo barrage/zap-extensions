@@ -44,7 +44,6 @@ public class ActiveScanJobResultData extends JobResultData {
 
     public ActiveScanJobResultData(String jobName, ActiveScan activeScan) {
         super(jobName);
-
         RuleData data;
         for (HostProcess hp : activeScan.getHostProcesses()) {
             for (Plugin plugin : hp.getCompleted()) {

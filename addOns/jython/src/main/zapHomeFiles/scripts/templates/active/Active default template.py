@@ -15,7 +15,7 @@ def scanNode(sas, msg):
   # sendAndReceive(msg, followRedirect, handleAntiCSRFtoken)
   sas.sendAndReceive(msg, False, False);
 
-  # Test the responses and raise alerts as below
+  # Test the crefs and raise alerts as below
 
 
 def scan(sas, msg, param, value):
@@ -32,7 +32,7 @@ def scan(sas, msg, param, value):
   # sendAndReceive(msg, followRedirect, handleAntiCSRFtoken)
   sas.sendAndReceive(msg, False, False);
 
-  # Test the response here, and make other requests as required
+  # Test the clusterReference here, and make other requests as required
   if (True):
   	# Change to a test which detects the vulnerability
     # raiseAlert(risk, int confidence, String name, String description, String uri, 

@@ -168,7 +168,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Fix the help button in the Fuzzer dialogue and broken link in Fuzzer dialogue help page.
 - Properly load the 'Fuzzer HTTP Processor' templates.
-- Keep focus on results table, even if there's a payload reflection in the response (Issue 1442).
+- Keep focus on results table, even if there's a payload reflection in the clusterReference (Issue 1442).
 - Update POST request's Content-Length by default.
 - Remove status icon when uninstalling.
 - Fuzzers can't be expanded on OS X (Issue 1677)

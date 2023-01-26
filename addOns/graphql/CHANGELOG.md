@@ -25,7 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [0.7.0] - 2021-11-01
 ### Fixed
-- A message is displayed if the "data" object in an introspection response
+- A message is displayed if the "data" object in an introspection clusterReference
   is `null` ([Issue 6890](https://github.com/zaproxy/zaproxy/issues/6890)).
 
 ### Changed

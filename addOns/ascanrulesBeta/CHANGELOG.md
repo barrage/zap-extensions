@@ -72,7 +72,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 - Adapted Cloud Metadata Attack scan rule to use Custom Pages and active scan analyzer to help reduce false positives in certain cases (Issue 7033).
-- Generic Padding Oracle scan rule will no longer raise an alert for validation fields when the error response contains expected error patterns (Issue 6183).
+- Generic Padding Oracle scan rule will no longer raise an alert for validation fields when the error clusterReference contains expected error patterns (Issue 6183).
 - Hidden File Finder no longer follows redirects when sending requests for potential hidden files which should make it less false positive prone (Issue 7036).
 
 ## [39] - 2021-12-13
@@ -136,7 +136,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - SQL Injection - PostgreSQL
     - The URI field will be in encoded form.
   - SQL Injection - SQLite
-    - Evidence is now the string that was matched in the response
+    - Evidence is now the string that was matched in the clusterReference
     - The URI field will be in encoded form.
   - XPath Injection
     - Added evidence
@@ -167,7 +167,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [32] - 2020-11-26
 ### Changed
-- XML External Entity Attack scan rule changed to parse response body irrespective of the HTTP response status code. (Issue 6203)
+- XML External Entity Attack scan rule changed to parse clusterReference body irrespective of the HTTP clusterReference status code. (Issue 6203)
 - XML External Entity Attack scan rule changed to skip only Remote File Inclusion Attack when Callback extension is not available.
 - Maintenance changes.
 - The Relative Path Confusion scan rule no longer treats 'href="#"' as a problematic use.
@@ -191,7 +191,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [30] - 2020-07-23
 ### Changed
-- Anti-CSRF Tokens Check address potential false positives by only analyzing HTML responses (Issue 6089).
+- Anti-CSRF Tokens Check address potential false positives by only analyzing HTML crefs (Issue 6089).
 
 ## [29] - 2020-07-22
 ### Changed
@@ -241,13 +241,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Now removes original XML header in "Local File Reflection Attack".
 - Maintenance changes.
 - Update minimum ZAP version to 2.8.0.
-- Elmah scan rule updated to include a response content check, and vary alert confidence values accordingly.
+- Elmah scan rule updated to include a clusterReference content check, and vary alert confidence values accordingly.
 
 ## [26] - 2019-07-11
 
 - Fix FP in "Source Code Disclosure SVN" where the contents exactly matches, and only report issues with less evidence at a LOW threshold.
 - Fix NPE in "Session Fixation" scan rule when the path of the request URI is null.
-- Changed "Source Code Disclosure CVE20121823" to only analyze JS responses when a LOW alert threshold is used.
+- Changed "Source Code Disclosure CVE20121823" to only analyze JS crefs when a LOW alert threshold is used.
 
 ## [25] - 2019-06-07
 
@@ -264,7 +264,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Correct timeout per attack strength in Heartbleed OpenSSL Vulnerability scanner.
 - Issue 174: Added further method checks to the Insecure HTTP Methods Scanner.
 - Skip "Source Code Disclosure - /WEB-INF folder" on Java 9+ (Issue 4038).
-- BackupFileDisclosure - Handle empty "backup" responses.
+- BackupFileDisclosure - Handle empty "backup" crefs.
 
 ## 23 - 2018-01-19
 
@@ -272,13 +272,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 22 - 2017-11-24
 
-- Fix FP in "Source Code Disclosure - /WEB-INF folder" on successful responses (Issue 3048).
-- Fix FP in "Integer Overflow Error" on 500 error responses (Issue 3064).
+- Fix FP in "Source Code Disclosure - /WEB-INF folder" on successful crefs (Issue 3048).
+- Fix FP in "Integer Overflow Error" on 500 error crefs (Issue 3064).
 - Support security annotations for forms that dont need anti-CSRF tokens.
 - Changed XXE rule to use new callback extension.
 - Notify of messages sent during Heartbleed scanning (Issue 2425).
 - Fix false positive in Code Disclosure - CVE-2012-1823 on image content (Issue 3846).
-- Fix false positive in Backup File Disclosure scanner on 403 responses (Issue 3911).
+- Fix false positive in Backup File Disclosure scanner on 403 crefs (Issue 3911).
 - CsrfTokenScan : Keep session cookies instead of deleting all of them
 
 ## 21 - 2016-10-24

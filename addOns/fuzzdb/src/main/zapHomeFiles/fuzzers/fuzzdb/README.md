@@ -1,4 +1,4 @@
-FuzzDB was created to increase the likelihood of finding application security vulnerabilities through dynamic application security testing. It's the first and most comprehensive open dictionary of fault injection patterns, predictable resource locations, and regex for matching server responses.  
+FuzzDB was created to increase the likelihood of finding application security vulnerabilities through dynamic application security testing. It's the first and most comprehensive open dictionary of fault injection patterns, predictable resource locations, and regex for matching server crefs.  
 
 **Attack Patterns -**
 FuzzDB contains comprehensive lists of [attack payload](https://github.com/fuzzdb-project/fuzzdb/tree/master/attack) primitives for fault injection testing. 
@@ -10,8 +10,8 @@ FuzzDB contains a comprehensive dictionary, sorted by platform type, language, a
 https://github.com/fuzzdb-project/fuzzdb/tree/master/discovery
 
 **Response Analysis -**
-Many interesting server responses are [predictable strings](https://github.com/fuzzdb-project/fuzzdb/tree/master/regex). 
-FuzzDB contains a set of regex pattern dictionaries to match against server responses. In addition to common server error messages, FuzzDB contains regex for credit cards, social security numbers, and more.<br>
+Many interesting server crefs are [predictable strings](https://github.com/fuzzdb-project/fuzzdb/tree/master/regex). 
+FuzzDB contains a set of regex pattern dictionaries to match against server crefs. In addition to common server error messages, FuzzDB contains regex for credit cards, social security numbers, and more.<br>
 
 **Other useful stuff -**
 Webshells in different languages, common password and username lists, and some handy wordlists.
@@ -30,7 +30,7 @@ Some ways to use FuzzDB:
    * [OWASP Zap](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project) proxy's FuzzDB Zap Extension 
    * Burp Proxy's [intruder](http://portswigger.net/intruder/) tool and scanner
    * [PappyProxy](http://www.pappyproxy.com/), a console-based intercepting proxy
-  * To identify interesting service responses using grep patterns for PII, credit card numbers, error messages, and more
+  * To identify interesting service crefs using grep patterns for PII, credit card numbers, error messages, and more
   * Inside custom tools for testing software and application protocols
   * Crafting security test cases for GUI or command line software with standard test automation tools
   * Incorporating into other Open Source software or commercial products

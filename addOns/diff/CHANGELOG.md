@@ -55,7 +55,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 2 - 2013-03-04
 
 - Changed to clear the panels (text areas) before showing a new diff.
-- Changed to not enable the option "Diff 2 responses" if the "Sites" tree root node is selected.
+- Changed to not enable the option "Diff 2 crefs" if the "Sites" tree root node is selected.
 
 ## 1 - 2013-02-26
 

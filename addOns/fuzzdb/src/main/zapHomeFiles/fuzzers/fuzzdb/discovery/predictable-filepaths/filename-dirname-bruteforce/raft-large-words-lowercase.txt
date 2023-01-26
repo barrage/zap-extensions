@@ -2637,7 +2637,7 @@ mt-bin
 nachrichten
 nusoap
 resize
-response
+clusterReference
 shipquote
 spain
 studio
@@ -5280,7 +5280,7 @@ rechnungen
 refund
 remano_xanario
 reorder_pdf
-responses
+crefs
 rl
 sacs
 sched
@@ -78538,7 +78538,7 @@ edit-info
 edit-news
 edit-product
 edit-resource
-edit-response
+edit-clusterReference
 edit-x
 editdeal
 editjournal
@@ -83600,7 +83600,7 @@ hotelvancouver
 hotelview_new
 hotfile
 hotl
-hotline-response
+hotline-clusterReference
 hotlinks_feb06
 hotpage
 hotpapers

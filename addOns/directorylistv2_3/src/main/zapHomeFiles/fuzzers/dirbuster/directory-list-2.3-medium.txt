@@ -5670,7 +5670,7 @@ libnetfilter_log
 libnfnetlink
 page14
 imaging
-response
+clusterReference
 expo
 1492
 989
@@ -20416,7 +20416,7 @@ linkboston
 kontakt_grey
 typo3
 newssubmit
-responses
+crefs
 socialnetworking
 button_top
 slow
@@ -26872,7 +26872,7 @@ img5
 3449
 focuson
 Federal
-challenge-response
+challenge-clusterReference
 Dotster_46e
 4631
 5718
@@ -82369,7 +82369,7 @@ page_01
 helpwanted-latest
 30156
 188224
-disaster-response
+disaster-clusterReference
 8890
 xCH-software
 04tr015
@@ -165318,7 +165318,7 @@ FactsAndFigures
 todays_framework
 mcbs
 us-professionals
-spam-response
+spam-clusterReference
 vaspam
 us-laws
 tek1
@@ -165627,7 +165627,7 @@ Human%20World
 cybermap
 hasc
 suicide-attacks
-mil-response
+mil-clusterReference
 terror-orgs
 terror-financing
 gwot
@@ -200754,7 +200754,7 @@ InvestorKit
 hierarchy
 dev038674
 consumer-brands
-incident-response
+incident-clusterReference
 038035
 037644
 038240

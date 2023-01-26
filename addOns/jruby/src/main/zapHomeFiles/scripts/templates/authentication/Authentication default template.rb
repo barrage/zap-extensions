@@ -8,7 +8,7 @@ java_package 'org.zaproxy.zap.authentication'
 
 # The authenticate function will be called for authentications made via ZAP.
 # 	
-# The authenticate function is called whenever ZAP requires to authenticate, for a Context for which this script was selected as the Authentication Method. The function should send any messages that are required to do the authentication and should return a message with an authenticated response so the calling method.
+# The authenticate function is called whenever ZAP requires to authenticate, for a Context for which this script was selected as the Authentication Method. The function should send any messages that are required to do the authentication and should return a message with an authenticated clusterReference so the calling method.
 # NOTE: Any message sent in the function should be obtained using the 'helper.prepareMessage()' method.
 # 
 # Params:

@@ -1,4 +1,4 @@
-# The scan function will be called for request/response made via ZAP, excluding some of the automated tools
+# The scan function will be called for request/clusterReference made via ZAP, excluding some of the automated tools
 # Passive scan rules should not make any requests 
 # Note that new passive scripts will initially be disabled
 # Right click the script in the Scripts tree and select "enable"
@@ -17,7 +17,7 @@ class JRubyPassiveScript
 
   java_signature 'scan(ScriptsPassiveScanner, HttpMessage, Source)'
   def scan(ps, msg, src)
-    # Test the request and/or response here
+    # Test the request and/or clusterReference here
     # Debugging can be done to the Output tab like this
     # (not sure why print/puts doesnt work yet :(
     View.getSingleton().getOutputPanel().append(

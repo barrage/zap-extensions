@@ -112,7 +112,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Cache-control scan rule no longer checks if Pragma is set or not.
 - Maintenance changes.
 - The Timestamp Disclosure scan rule now excludes values in "Report-To" or "NEL" headers (Issue 6493).
-- The Timestamp Disclosure scan rule no longer considers font type requests or responses when looking for possible timestamps (Issue 6274).
+- The Timestamp Disclosure scan rule no longer considers font type requests or crefs when looking for possible timestamps (Issue 6274).
 - X-Frame-Options scan rule CWE ID changed from 16 to 1021.
 - Discontinued use of CWE-16 and switched to more specific weaknesses in the following scan rules:
   - Character Set Mismatch
@@ -160,7 +160,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Changed ViewState and XFrameOption rules to return example alerts for the docs.
 - Handle an IllegalArgumentException that could occur in the CSP scan rule if multiple CSP headers were present and one (or more) had a report-uri directive when trying to merge them.
 - Allow to ignore cookies in same site and loosely scoped scan rules.
-- The Application Error scan rule will not alert on web assembly responses.
+- The Application Error scan rule will not alert on web assembly crefs.
 
 ## [29] - 2020-06-01
 ### Changed
@@ -181,7 +181,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Minimum ZAP version is now 2.9.0. (Various scan rules adjusted to address core deprecations.)
 - 'Username Hash Found' scan rule now uses updated core functionality to retrieve configured users.
 - Tweak help for 'Cookie HttpOnly' scan rule.
-- 'Information Disclosure: Suspicious Comments' if matched within script block or JS response raise Alert with Low confidence.
+- 'Information Disclosure: Suspicious Comments' if matched within script block or JS clusterReference raise Alert with Low confidence.
 - Migrate an input file from Beta to Release that were missed during previous promotions.
   - This addresses errors such as `[ZAP-PassiveScanner] ERROR org.zaproxy.zap.extension.pscanrules.InformationDisclosureInURL  - No such file: .... /xml/URL-information-disclosure-messages.txt`
 - 'Application Error' scan rule now supports custom payloads when used in conjunction with the Custom Payloads addon.
@@ -242,7 +242,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Fix a typo in the description of Referer Exposes Session ID.
 - Address false negative on jsessionid in URL Rewrite when preceded by a semi-colon and potentially followed by parameters (Issue 3008).
-- Address potential false positive in Cross Domain Script Inclusion Scanner by ensuring that only HTML responses are analyzed.
+- Address potential false positive in Cross Domain Script Inclusion Scanner by ensuring that only HTML crefs are analyzed.
 
 ## 22 - 2018-01-19
 
@@ -284,7 +284,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Issue 823 - i18n (internationalise) release passive scan rules.
 - Add CWE and WASC IDs to passive scanners which may have been lacking those details.
-- Issue 2405 - Accommodate responses with multiple Cache-Control headers.
+- Issue 2405 - Accommodate crefs with multiple Cache-Control headers.
 - Issue 395 - Add handling for allowed cross domain hosts (via context definition at HIGH threshold).
 
 ## 15 - 2015-12-04
@@ -293,8 +293,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 14 - 2015-09-07
 
-- Issue 1600 - XFrameOptionScanner, add handling to prevent alerts on error responses at High threshold.
-- Issue 760 - XContentTypeOptionsScanner, add handling to prevent alerts on error responses at High threshold.
+- Issue 1600 - XFrameOptionScanner, add handling to prevent alerts on error crefs at High threshold.
+- Issue 760 - XContentTypeOptionsScanner, add handling to prevent alerts on error crefs at High threshold.
 
 ## 13 - 2015-08-23
 

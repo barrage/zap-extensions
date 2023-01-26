@@ -20,9 +20,6 @@ public class KMeans {
                                                                     int maxIterations) {
 
         List<ClusterReference> centroids = randomCentroids(crefs, k);
-        System.out.println("got random centroids: ");
-        centroids.forEach(System.out::println);
-        System.out.println("thats that");
         Map<ClusterReference, List<ClusterReference>> clusters = new HashMap<>();
         Map<ClusterReference, List<ClusterReference>> lastState = new HashMap<>();
 
@@ -70,15 +67,20 @@ public class KMeans {
                 .flatMap(e -> e.getFields().keySet().stream())
                 .collect(toSet());
         for (int i = 0; i < k; i++) {
-            Map<String, Double> coordinates = new HashMap<>();
+            Map<String, Double> fields = new HashMap<>();
             for (String attribute : attributes) {
                 double max = maxs.get(attribute);
                 double min = mins.get(attribute);
-                coordinates.put(attribute, random.nextDouble() * (max - min) + min);
+                fields.put(attribute, random.nextDouble() * (max - min) + min);
             }
-            centroids.add(new ClusterReference(coordinates));
+            centroids.add(new ClusterReference(fields, randomResponseBody(crefs)));
         }
         return centroids;
+    }
+
+    private static String randomResponseBody(List<ClusterReference> crefs) {
+        ClusterReference chosen = crefs.get(random.nextInt(crefs.size()));
+        return chosen.getResponseBody();
     }
 
     private static ClusterReference nearestCentroid(ClusterReference clusterReference, List<ClusterReference> centroids, Distance distance) {
@@ -86,7 +88,7 @@ public class KMeans {
         ClusterReference nearest = null;
 
         for (ClusterReference centroid : centroids) {
-            double currentDistance = distance.calculate(clusterReference.getFields(), centroid.getFields());
+            double currentDistance = distance.calculate(clusterReference, centroid);
 
             if (currentDistance < minimumDistance) {
                 minimumDistance = currentDistance;
@@ -111,8 +113,7 @@ public class KMeans {
     private static ClusterReference average(ClusterReference centroid, List<ClusterReference> crefs) {
         if (crefs == null || crefs.isEmpty()) {
             return centroid;
-        }
-        if(centroid == null) System.out.println("CENTROID IS NULL");//TODO remove?
+        }//TODO provjera ako je centroid null?
         Map<String, Double> average = centroid.getFields();
         crefs.stream().flatMap(e -> e.getFields().keySet().stream())
                 .forEach(k -> average.put(k, 0.0));
@@ -125,7 +126,7 @@ public class KMeans {
 
         average.forEach((k, v) -> average.put(k, v / crefs.size()));
 
-        return new ClusterReference(average);
+        return new ClusterReference(average, randomResponseBody(crefs));
     }
 
     private static List<ClusterReference> relocateCentroids(Map<ClusterReference, List<ClusterReference>> clusters) {

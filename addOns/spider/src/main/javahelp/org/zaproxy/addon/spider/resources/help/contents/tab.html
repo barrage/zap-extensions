@@ -47,26 +47,26 @@ to specify exactly what should be scanned.<br>
 			why was it not processed)</li>
 	</ul>
 
-	<p>For each Spider message, shown under the Messages tab, you can see details of the request sent and response
+	<p>For each Spider message, shown under the Messages tab, you can see details of the request sent and clusterReference
 		received. The <code>Processed</code> column, indicates whether:
 	<ul>
 		<li><img align="bottom" alt="successful parse" src="images/green_dot.png">Successfully
-			- the response was successfully received and parsed</li>
+			- the clusterReference was successfully received and parsed</li>
 		<li><img align="bottom" alt="no parse" src="images/red_dot.png">Empty
-			Message - the response was not parsed because it was empty</li>
+			Message - the clusterReference was not parsed because it was empty</li>
 		<li><img align="bottom" alt="no parse" src="images/red_dot.png">I/O
-			Error - an input/output error occurred while fetching the response</li>
+			Error - an input/output error occurred while fetching the clusterReference</li>
 		<li><img align="bottom" alt="no parse" src="images/red_dot.png">Max
-			Children - the response was not parsed because the corresponding parent Sites node
+			Children - the clusterReference was not parsed because the corresponding parent Sites node
 			already has more child nodes than the maximum allowed</li>
 		<li><img align="bottom" alt="no parse" src="images/red_dot.png">Max
-			Depth - the response was not parsed because it passed the maximum depth allowed</li>
+			Depth - the clusterReference was not parsed because it passed the maximum depth allowed</li>
 		<li><img align="bottom" alt="no parse" src="images/red_dot.png">Max
-			Size - the response was not parsed because its size is not under the maximum allowed</li>
+			Size - the clusterReference was not parsed because its size is not under the maximum allowed</li>
 		<li><img align="bottom" alt="no parse" src="images/red_dot.png">Not
-			Text - the response was not parsed because it's not text, for example, an image</li>
+			Text - the clusterReference was not parsed because it's not text, for example, an image</li>
 		<li><img align="bottom" alt="no parse" src="images/red_dot.png">Spider
-			Stopped - the response was not fetched or parsed because the Spider was already stopped</li>
+			Stopped - the clusterReference was not fetched or parsed because the Spider was already stopped</li>
 	</ul>
 
 	<h2>See also</h2>

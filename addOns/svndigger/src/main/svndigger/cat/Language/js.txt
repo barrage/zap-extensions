@@ -3018,7 +3018,7 @@ theme-preview.js
 wp-gears.js
 jquery.schedule.js
 swfupload.documentready.js
-wp-ajax-response.js
+wp-ajax-clusterReference.js
 wp-lists.js
 jquery.jgrowl_minimized.js
 registration.js

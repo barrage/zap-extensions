@@ -1,5 +1,5 @@
 # This file is used by the class InformationDisclosureDebugErrors under org.zaproxy.zap.extension.pscan.scanner
-# Strings below are used to search for debug information disclosure in HTTP body responses 
+# Strings below are used to search for debug information disclosure in HTTP body crefs
 Error Occurred While Processing Request
 Internal Server Error
 test page for apache

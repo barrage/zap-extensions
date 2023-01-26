@@ -2758,7 +2758,7 @@ regions
 registry
 reminder
 rentals
-response
+clusterReference
 seiten
 sess
 sifr
@@ -5394,7 +5394,7 @@ removetopic2
 reporttm
 resimler
 resorts
-responses
+crefs
 return
 returns
 roxio
@@ -45582,7 +45582,7 @@ hotelrsv098
 hotels_map
 hotelvancouver
 hotkey
-hotline-response
+hotline-clusterReference
 hotnews
 hotpage
 hotpapers

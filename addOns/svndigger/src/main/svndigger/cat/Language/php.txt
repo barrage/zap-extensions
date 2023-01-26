@@ -5942,7 +5942,7 @@ mozilla.inc.php
 msie.inc.php
 msnbot.inc.php
 opera.inc.php
-responses.inc.php
+crefs.inc.php
 safari.inc.php
 screener.inc.php
 whitelist.inc.php
@@ -12669,7 +12669,7 @@ Adminstatus.php
 Leftnav.php
 query.test.php
 request.test.php
-response.test.php
+clusterReference.test.php
 server.test.php
 EventLog.class.php
 Level.class.php
@@ -17367,7 +17367,7 @@ autocrud.php
 crud.inc.php
 relationship.inc.php
 test_error.php
-class.response.php
+class.clusterReference.php
 Search_0.php
 ajouter.php
 courierb.php

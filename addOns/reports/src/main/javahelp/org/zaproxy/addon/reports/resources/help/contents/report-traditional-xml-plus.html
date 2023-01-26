@@ -23,7 +23,7 @@
                                                         &lt;confidence&gt;1&lt;/confidence&gt;
                                                         &lt;riskdesc&gt;Low (Low)&lt;/riskdesc&gt;
                                                         &lt;confidencedesc&gt;Low&lt;/confidencedesc&gt;
-                                                        &lt;desc&gt;Repeated GET requests: drop a different cookie each time, followed by normal request with all cookies to stabilize session, compare responses against original baseline GET. This can reveal areas where cookie based authentication/attributes are not actually enforced.&lt;/desc&gt;
+                                                        &lt;desc&gt;Repeated GET requests: drop a different cookie each time, followed by normal request with all cookies to stabilize session, compare crefs against original baseline GET. This can reveal areas where cookie based authentication/attributes are not actually enforced.&lt;/desc&gt;
                                                         &lt;instances&gt;
                                                                 
                                                                         &lt;instance&gt;
@@ -158,8 +158,8 @@
                                                         &lt;solution&gt;&lt;/solution&gt;
                                                         &lt;otherinfo&gt;NOTE: Because of its name this cookie may be important, but dropping it appears to have no effect: [JSESSIONID] 
         Cookies that don&amp;apos;t have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.
-        These cookies affected the response: 
-        These cookies did NOT affect the response: JSESSIONID
+        These cookies affected the clusterReference:
+        These cookies did NOT affect the clusterReference: JSESSIONID
         &lt;/otherinfo&gt;
                                                         &lt;reference&gt;http://projects.webappsec.org/Fingerprinting
         &lt;/reference&gt;

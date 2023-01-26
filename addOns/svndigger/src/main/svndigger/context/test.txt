@@ -348,7 +348,7 @@ memcache.test.php
 test_plugin_theme
 sanitize.test.php
 unit_testing.html
-response.test.php
+clusterReference.test.php
 en-x-testmini.php
 behavior.test.php
 test.php.svn-base

@@ -15,13 +15,13 @@ Contributed by <a href="https://www.codedx.com/">https://www.codedx.com/</a>
 This option will generate a report for you and upload it to a Code Dx server. Selecting it will prompt you for the Server URL and API Key. After populating the fields, click the refresh button to get a list of projects available to the API Key. Then click the Upload button to send results to the Code Dx server.
 
 <H2>Code Dx: Generate XML Report</H2>
-This option will generate a standard XML report that includes the HTTP request and response data.
+This option will generate a standard XML report that includes the HTTP request and clusterReference data.
 
 <H1>API</H1>
 <H2>Actions</H2>
 
 <H3>uploadReport</H3>
-Uploads a report to Code Dx. Note that uploading an empty report with no alerts will cause an Exception to be thrown as Code Dx won't be able to read it and will return a non-200 response.
+Uploads a report to Code Dx. Note that uploading an empty report with no alerts will cause an Exception to be thrown as Code Dx won't be able to read it and will return a non-200 clusterReference.
 <br><br>
 <I>Parameters</I>
 <UL>
@@ -55,7 +55,7 @@ Generates a Code Dx report, saves it to a temporary file, uploads to Code Dx, th
 
 <H2>Views</H2>
 <H3>generateReport</H3>
-Generates an XML report with request and response data.
+Generates an XML report with request and clusterReference data.
 <br><br>
 <I>Returns</I>
 <br>

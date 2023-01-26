@@ -30,7 +30,7 @@ class JRubyActiveScript
     # sendAndReceive(msg, followRedirect, handleAntiCSRFtoken)
     sas.sendAndReceive(msg, false, false);
 
-    # Test the response here, and make other requests as required
+    # Test the clusterReference here, and make other requests as required
     if (true)
   	  # Change to a test which detects the vulnerability
       # raiseAlert(risk, int confidence, String name, String description, String uri, 

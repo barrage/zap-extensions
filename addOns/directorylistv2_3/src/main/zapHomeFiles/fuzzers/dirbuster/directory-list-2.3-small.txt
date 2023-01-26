@@ -5729,7 +5729,7 @@ windows-vista
 social-engineering
 spoof
 distributions
-response
+clusterReference
 analog
 underground
 casestudy
@@ -20763,7 +20763,7 @@ putty
 postgraduate
 bachelor
 degree
-responses
+crefs
 7160
 7825
 ratings_guide
@@ -27304,7 +27304,7 @@ envelopes
 rblcheck
 SpamCop
 resources6
-challenge-response
+challenge-clusterReference
 reynolds
 badmailfrom
 spamblock
@@ -80542,7 +80542,7 @@ internet_info
 sld012
 8034
 page_01
-disaster-response
+disaster-clusterReference
 8890
 04tr015
 ESM

@@ -55,12 +55,12 @@
 	Also, the API needs to be configured to accept external IP addresses (i.e. the IP address from where ZAP is being accessed).
 
 	<H4>Remove Accept-Encoding Request Header</H4>
-	Allows the proxy to remove the "Accept-Encoding" request-header field, so no (unsupported) encoding transformations are done to the response.<br/>
+	Allows the proxy to remove the "Accept-Encoding" request-header field, so no (unsupported) encoding transformations are done to the clusterReference.<br/>
 	This option should be always enabled unless when testing the encoding transformations.<br/>
 	The messages encoded with unsupported encodings will not be correctly scanned (either by passive and active scanners).
 
 	<H4>Decode Response</H4>
-	Allows the proxy to automatically decode (i.e. gzip, deflate) the response. This option is needed for applications that ignore
+	Allows the proxy to automatically decode (i.e. gzip, deflate) the clusterReference. This option is needed for applications that ignore
 	the "Accept-Encoding" request-header field.
 
 	<H3>Intercepting/Transparent Proxy</H3>

@@ -21,7 +21,7 @@
       "rootExpression": {
         "length": 0,
         "approx": 0,
-        "variableName": "response.url",
+        "variableName": "clusterReference.url",
         "not": false,
         "elementType": "ZestExpressionLength"
       },
@@ -43,7 +43,7 @@
       ],
       "elseStatements": [
         {
-          "comment": "Called for the response - do nothing.",
+          "comment": "Called for the clusterReference - do nothing.",
           "index": 5,
           "elementType": "ZestComment"
         }

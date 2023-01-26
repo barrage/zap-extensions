@@ -14,7 +14,7 @@
   },
   "statements": [
     {
-      "comment": "HttpSender scripts are called for every request and response made through or by ZAP.\nIf the response.url parameter is empty then the script has been called for a response, otherwise it will have been called for a request.\nThe zap.initiator parameter defined the initiator - see ZAP documentation for more details.",
+      "comment": "HttpSender scripts are called for every request and clusterReference made through or by ZAP.\nIf the clusterReference.url parameter is empty then the script has been called for a clusterReference, otherwise it will have been called for a request.\nThe zap.initiator parameter defined the initiator - see ZAP documentation for more details.",
       "index": 1,
       "elementType": "ZestComment"
     },
@@ -22,7 +22,7 @@
       "rootExpression": {
         "length": 0,
         "approx": 0,
-        "variableName": "response.url",
+        "variableName": "clusterReference.url",
         "not": false,
         "elementType": "ZestExpressionLength"
       },
@@ -35,7 +35,7 @@
       ],
       "elseStatements": [
         {
-          "comment": "Called for the response.\nSet request.header to an empty string to drop the response.",
+          "comment": "Called for the clusterReference.\nSet request.header to an empty string to drop the clusterReference.",
           "index": 6,
           "elementType": "ZestComment"
         }

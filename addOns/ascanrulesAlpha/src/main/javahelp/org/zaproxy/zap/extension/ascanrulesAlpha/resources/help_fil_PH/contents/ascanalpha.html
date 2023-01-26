@@ -70,8 +70,8 @@ Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns
 
 <h2>Spring4Shell (CVE-2022-22965)</h2>
 This rule attempts to discover the Spring4Shell (<a href="https://tanzu.vmware.com/security/cve-2022-22965">CVE-2022-22965</a> vulnerability.
-It uses a payload of <code>class.module.classLoader.DefaultAssertionStatus=nonsense</code> on all nodes and raises an alert if this payload results in a 400 response.
-It will not raise an alert if a similar but safe payload also results in a 400 response.
+It uses a payload of <code>class.module.classLoader.DefaultAssertionStatus=nonsense</code> on all nodes and raises an alert if this payload results in a 400 clusterReference.
+It will not raise an alert if a similar but safe payload also results in a 400 clusterReference.
 <p>
 Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/ascanrulesAlpha/src/main/java/org/zaproxy/zap/extension/ascanrulesAlpha/Spring4ShellScanRule.java">Spring4ShellScanRule.java</a>
 

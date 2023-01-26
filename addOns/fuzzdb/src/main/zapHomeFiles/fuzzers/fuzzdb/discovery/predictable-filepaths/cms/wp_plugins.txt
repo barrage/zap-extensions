@@ -5582,7 +5582,7 @@ wp-content/plugins/latest-post-date/
 wp-content/plugins/latest-posts-by-author/
 wp-content/plugins/latest-posts-on-any-custom-page/
 wp-content/plugins/latest-posts-titles/
-wp-content/plugins/latest-responses/
+wp-content/plugins/latest-crefs/
 wp-content/plugins/latest-tweets/
 wp-content/plugins/latest-twitter-sidebar-widget/
 wp-content/plugins/latest-twitter-updates/
@@ -6087,7 +6087,7 @@ wp-content/plugins/media-categories/
 wp-content/plugins/media-credit/
 wp-content/plugins/media-downloader/
 wp-content/plugins/media-finder/
-wp-content/plugins/media-in-response/
+wp-content/plugins/media-in-clusterReference/
 wp-content/plugins/media-library-gallery/
 wp-content/plugins/media-link-preview/
 wp-content/plugins/media-tags/
@@ -8374,7 +8374,7 @@ wp-content/plugins/resize-at-upload/
 wp-content/plugins/resize-on-upload/
 wp-content/plugins/resize-tag-cloud/
 wp-content/plugins/resize-vimeo/
-wp-content/plugins/response-tracker/
+wp-content/plugins/clusterReference-tracker/
 wp-content/plugins/rest-api/
 wp-content/plugins/rest-in-peace-artikel-5/
 wp-content/plugins/restore-exact-time/
@@ -10851,7 +10851,7 @@ wp-content/plugins/versiculo-do-dia/
 wp-content/plugins/version-checker/
 wp-content/plugins/version-creator/
 wp-content/plugins/vertical-carousel-slideshow/
-wp-content/plugins/vertical-response-newsletter-widget/
+wp-content/plugins/vertical-clusterReference-newsletter-widget/
 wp-content/plugins/vertical-scroll-image-slideshow-gallery/
 wp-content/plugins/vertical-scroll-recent-comments/
 wp-content/plugins/vertical-scroll-recent-post/

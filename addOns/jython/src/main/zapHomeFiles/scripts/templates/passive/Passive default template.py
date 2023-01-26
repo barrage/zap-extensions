@@ -30,7 +30,7 @@ def scan(ps, msg, src):
     src (Source): The HTML source of the message (if any). 
 
   """
-  # Test the request and/or response here
+  # Test the request and/or clusterReference here
   if (True):
     # Change to a test which detects the vulnerability
     # raiseAlert(risk, int confidence, String name, String description, String uri, 

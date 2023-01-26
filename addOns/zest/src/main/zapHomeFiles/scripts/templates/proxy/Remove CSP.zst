@@ -13,7 +13,7 @@
   },
   "statements": [
     {
-      "comment": "Proxy scripts are called for every request and response made through ZAP.\nIf the response.url parameter is null then the script has been called for a response, otherwise it will have been called for a request.\n",
+      "comment": "Proxy scripts are called for every request and clusterReference made through ZAP.\nIf the clusterReference.url parameter is null then the script has been called for a clusterReference, otherwise it will have been called for a request.\n",
       "index": 1,
       "elementType": "ZestComment"
     },
@@ -21,7 +21,7 @@
       "rootExpression": {
         "length": 0,
         "approx": 0,
-        "variableName": "response.url",
+        "variableName": "clusterReference.url",
         "not": false,
         "elementType": "ZestExpressionLength"
       },
@@ -34,7 +34,7 @@
       ],
       "elseStatements": [
         {
-          "comment": "Called for the response.\nRemove the Content-Security-Policy header, if present.",
+          "comment": "Called for the clusterReference.\nRemove the Content-Security-Policy header, if present.",
           "index": 6,
           "elementType": "ZestComment"
         },
@@ -43,7 +43,7 @@
           "replacement": "Content-Security-Policy:",
           "regex": true,
           "caseExact": false,
-          "variableName": "response.header",
+          "variableName": "clusterReference.header",
           "index": 7,
           "elementType": "ZestAssignReplace"
         }

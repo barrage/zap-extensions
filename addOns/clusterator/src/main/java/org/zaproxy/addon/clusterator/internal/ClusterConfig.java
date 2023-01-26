@@ -15,4 +15,30 @@ public class ClusterConfig {
 		this.similarityWeight = similarityWeight;
 		this.reflectedWeight = reflectedWeight;
 	}
+	public double getResponseLengthWeight() {
+		return responseLengthWeight;
+	}
+	public double getRequestLengthWeight() {
+		return requestLengthWeight;
+	}
+	public double getResponseTimeWeight() {
+		return responseTimeWeight;
+	}
+	public double getSimilarityWeight() {
+		return similarityWeight;
+	}
+	public double getReflectedWeight() {
+		return reflectedWeight;
+	}
+
+	@Override
+	public String toString() {
+		return "ClusterConfig{" +
+				"responseLengthWeight=" + responseLengthWeight +
+				", requestLengthWeight=" + requestLengthWeight +
+				", responseTimeWeight=" + responseTimeWeight +
+				", similarityWeight=" + similarityWeight +
+				", reflectedWeight=" + reflectedWeight +
+				'}';
+	}
 }

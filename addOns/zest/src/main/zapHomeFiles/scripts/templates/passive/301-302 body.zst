@@ -9,8 +9,8 @@
     "tokenStart": "{{",
     "tokenEnd": "}}",
     "tokens": {
-      "response.body": "",
-      "response.header": "",
+      "clusterReference.body": "",
+      "clusterReference.header": "",
       "request.header": "",
       "request.body": "",
       "request.url": "",
@@ -41,7 +41,7 @@
           "rootExpression": {
             "length": 0,
             "approx": 0,
-            "variableName": "response.body",
+            "variableName": "clusterReference.body",
             "not": false,
             "elementType": "ZestExpressionLength"
           },

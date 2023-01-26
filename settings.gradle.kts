@@ -21,6 +21,7 @@ var addOns = listOf(
     "bugtracker",
     "callgraph",
     "callhome",
+    "clusterator",
     "codedx",
     "commonlib",
     "coreLang",

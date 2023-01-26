@@ -47,9 +47,6 @@ import java.util.List;
  */
 public class AutoFuzzer extends AbstractAppParamPlugin {
 
-	/**
-	 * Prefix for internationalized messages used by this rule
-	 */
 	private static final String MESSAGE_PREFIX = "ascanalpha.autofuzzer.";
 	private static final String fuzzersFolder = Constant.getZapHome() + "fuzzers";
 	private static final String configFile = fuzzersFolder + File.separator + "autofuzzer.config";
@@ -111,32 +108,9 @@ public class AutoFuzzer extends AbstractAppParamPlugin {
 		try {
 			parseConfig();
 		} catch (NumberFormatException ex) {
-			log.error("Error in config file /ZAP home/fuzzers/autofuzzer.config");
+			log.error("Error in config file /ZAP home/fuzzers/autofuzzer.config, view documentation");
 		}
 		try {
-
-			if (!Constant.isDevBuild()) {
-				return;
-			}
-
-			int numAttacks = 0;
-
-			switch (this.getAttackStrength()) {
-				case LOW:
-					numAttacks = 10;
-					break;
-				case MEDIUM:
-					numAttacks = 50;
-					break;
-				case HIGH:
-					numAttacks = 100;
-					break;
-				case INSANE:
-					numAttacks = 1000;
-					break;
-				default:
-					break;
-			}
 			for (int j = 0; j < userPayloads.size(); j++) {
 				new File(genFolder + File.separator + j).mkdirs();
 				String outputPerInput = j + File.separator + getFilePattern();
@@ -144,71 +118,28 @@ public class AutoFuzzer extends AbstractAppParamPlugin {
 				if (this.generatedPayloads == null) {
 					this.generatedPayloads = new ArrayList<>();
 				}
-				for (int i = 1; i <= quantity + 1; i++) {
+				for (int i = 1; i <= quantity; i++) {
 					String loadable = genFolder + File.separator + insertNumber(outputPerInput, i);
 					this.generatedPayloads.addAll(loadFile(loadable));
 				}
-				log.error("generatedPayloads.size=" + generatedPayloads.size());
-				for (int i = 0; i < numAttacks; i++) {
+				for (String generatedPayload : this.generatedPayloads) {
 					if (this.isStop()) {
-						// User has stopped the scan
 						break;
 					}
-					if (i >= this.generatedPayloads.size()) {
-						// run out of attack strings
-						break;
-					}
-					String attack = this.generatedPayloads.get(i);
-					// Always use getNewMsg() for each new request
 					HttpMessage testMsg = getNewMsg();
-					setParameter(testMsg, param, attack);
+					testMsg.setNote(generatedPayload);
+					setParameter(testMsg, param, generatedPayload);
 					sendAndReceive(testMsg);
-					StringBuilder sb = new StringBuilder();
-					sb.append(testMsg.getResponseHeader().getStatusCode());
-					sb.append(',');
-					sb.append(testMsg.getResponseHeader().getContentLength());
-					sb.append(',');
-					sb.append(attack.length());
-					sb.append(',');
-//					if (doesResponseContainString(msg.getResponseBody(), attack) != null) { //podizanje alerta za reflected TODO
-//						newAlert()
-//								.setConfidence(Alert.CONFIDENCE_USER_CONFIRMED)
-//								.setParam(param)
-//								.setAttack(attack)
-//								.setMessage(testMsg)
-//								.raise();
-//						sb.append("reflected uvijek");
-//					} else {
-//						sb.append(1);
-//					}
-					sb.append('\n');
-					log.error("novi ispis: " + sb.toString());
-					new File(genFolder + "out" + File.separator + j + File.separator).mkdirs();
-					writeToFile(sb.toString(), genFolder + "out" + File.separator + j + File.separator + i + ".txt");
-
 				}
 			}
-
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
-		}
-	}
-
-	private void writeToFile(String string, String path) {
-		log.error("called with: " + path);
-		try (Writer writer = new BufferedWriter(
-				new OutputStreamWriter(
-						new FileOutputStream(path), StandardCharsets.UTF_8))) {
-			writer.write(string);
-		} catch (IOException e) {
-			log.error("writing response to file failed");
 		}
 	}
 
 	private String insertNumber(String outputPerInput, int i) {
 		return String.format(outputPerInput.replaceAll("%n", "%d"), i);
 	}
-
 
 	private void parseConfig() {
 		List<String> lines = loadFile(configFile);
@@ -218,47 +149,21 @@ public class AutoFuzzer extends AbstractAppParamPlugin {
 		this.quantity = Integer.parseInt(lines.get(3));
 	}
 
-	private String doesResponseContainString(HttpBody body, String str) {
-		String sBody;
-		if (AlertThreshold.HIGH.equals(this.getAlertThreshold())) {
-			// For a high threshold perform a case exact check
-			sBody = body.toString();
-		} else {
-			// For all other thresholds perform a case ignore check
-			sBody = body.toString().toLowerCase();
-		}
-
-		if (!AlertThreshold.HIGH.equals(this.getAlertThreshold())) {
-			// Use case ignore unless a high threshold has been specified
-			str = str.toLowerCase();
-		}
-		int start = sBody.indexOf(str);
-		if (start >= 0) {
-			// Return the original (case exact) string so we can match it in the response
-			return body.toString().substring(start, start + str.length());
-		}
-		return null;
-	}
-
-	private static void generatePayloads(String userPayload, int quantity, String outputName) throws Exception {
+	private static void generatePayloads(
+			String userPayload, int quantity, String outputName) throws Exception {
 		String scriptName = "genScript1.sh";
 		File script = new File(genFolder + File.separator + scriptName);
 		File output = new File(genFolder + File.separator + outputName);
-		//generating
 		try (Writer writer = new BufferedWriter(
 				new OutputStreamWriter(
 						new FileOutputStream(script), StandardCharsets.UTF_8))) {
-			String s = "#!/bin/bash\n" +
-					"echo \"" + userPayload + "\" | radamsa -n " + quantity + " -o \"" + output.getAbsolutePath() + "\"";
+			String s = "#!/bin/bash\n" + "echo \"" + userPayload +
+					"\" | radamsa -n " + quantity +
+					" -o \"" + output.getAbsolutePath() + "\"";
 			writer.write(s);
 		}
-		String[] cmd = {"bash", script.getAbsolutePath()};
-		Process p = new ProcessBuilder(cmd).start();
-	}
-
-	private File getOutputDir() {
-		String outputStr = outputPath.toLowerCase().trim();
-		return new File(outputStr.substring(0, outputStr.lastIndexOf(File.separatorChar)));
+		String[] command = {"bash", script.getAbsolutePath()};
+		new ProcessBuilder(command).inheritIO().start().waitFor();
 	}
 
 	private String getFilePattern() {
@@ -267,9 +172,6 @@ public class AutoFuzzer extends AbstractAppParamPlugin {
 	}
 
 	private List<String> loadFile(String file) {
-		/*
-		 * ZAP will have already extracted the file from the add-on and put it underneath the 'ZAP home' directory
-		 */
 		List<String> strings = new ArrayList<>();
 		BufferedReader reader = null;
 		File f = new File(file);

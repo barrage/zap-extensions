@@ -85,7 +85,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Insecure Form Load
   - Insecure Form Post
   - Strict-Transport-Security
-- Hash Disclosure scan rule will now only evaluate JavaScript responses at Low threshold (Issue 6071).
+- Hash Disclosure scan rule will now only evaluate JavaScript crefs at Low threshold (Issue 6071).
 - Added/updated the details of some alerts (some changes might break Alert Filters)
   - Insecure Form Load
     - Added evidence
@@ -121,7 +121,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 'PII Disclosure scanner' alerts and help entry renamed 'PII Disclosure' for clarity and proper title caps.
 - 'PII Disclosure' added further false positive handling with regard to exponential numbers such as 2.4670000000000001E-2 or 2.4670000000000001E2.
 - Maintenance changes.
-- 'Servlet Parameter Pollution' scan rule will now only scan responses for in Context URLs for which the Technology JSP/Serlet is applicable.
+- 'Servlet Parameter Pollution' scan rule will now only scan crefs for in Context URLs for which the Technology JSP/Serlet is applicable.
 - Updated owasp.org references (Issue 5962).
 - 'PII Disclosure' added support for looking up evidence against an Open Source Bank Identification Number List. Confidence is now modified based on whether the lookup is successful or not. Additional details are added to 'Other Info' if available (Issue 5842).
 - Changed to set Risk Info and Confidence Low for the following passive scan rules: User Controlled Cookie, User Controlled JavaScript Event, and User Controlled Charset.
@@ -194,11 +194,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Minor code changes to address deprecation.<br/>
 - At HIGH threshold only perform CSRF checks for in scope messages (Issue 1354).<br/>
-- Exclude JavaScript response types from the InformationDisclosureDebugErrors scanner unless threshold is Low (Issue 4210).<br/>
+- Exclude JavaScript clusterReference types from the InformationDisclosureDebugErrors scanner unless threshold is Low (Issue 4210).<br/>
 
 ## 17 - 2017-11-24
 
-- Minor changes to InsecureJFSViewStatePassiveScanner (check response contains JSF viewstate or if it's server stored).<br/>
+- Minor changes to InsecureJFSViewStatePassiveScanner (check clusterReference contains JSF viewstate or if it's server stored).<br/>
 - Improve the domain matching in CookieLooselyScopedScanner.<br/>
 - Issue 3449: CSRFcountermeasures passive scanner now raises alerts on a per-form basis on pages with multiple forms.<br/>
 - Issue 3937: Update ServletParameterPollutionScanner reference.<br/>

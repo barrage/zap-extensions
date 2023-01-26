@@ -17,9 +17,9 @@
 	<p>The Spider can configured and started using the <a href="dialog.html">Spider dialogue</a>.</p>
 
 	<p>During the processing of an URL, the Spider makes a request to
-		fetch the resource and then parses the response, identifying
+		fetch the resource and then parses the clusterReference, identifying
 		hyperlinks. It currently has the following behavior when processing
-		types of responses:</p>
+		types of crefs:</p>
 
 	<h4>HTML</h4>
 	Processes the specific tags, identifying links to new resources:
@@ -82,7 +82,7 @@
 	SVG image files are parsed to identify HREF attributes and extract/resolve any contained links.
 
 	<h4>Non-HTML Text Response</h4>
-	Text responses are parsed scanning for the URL pattern
+	Text crefs are parsed scanning for the URL pattern
 
 	<h4>Non-Text Response</h4>
 	Currently, the Spider does not process this type of resources.

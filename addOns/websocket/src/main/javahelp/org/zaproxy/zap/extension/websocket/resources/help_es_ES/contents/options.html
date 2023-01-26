@@ -22,7 +22,7 @@ Si se desea ignorar solamente un canal específico, compruebe las <i>Propiedades
 En la barra de herramientas <i>Punto de interrupción</i> , hay dos botones:
 <ul>
 	<li><img src="images/105.png" align="bottom" width="16" height="16" />&nbsp;&nbsp;<i>Set break on all requests</i></li>
-	<li><img src="images/106.png" align="bottom" width="16" height="16" />&nbsp;&nbsp;<i>Set break on all responses</i></li>
+	<li><img src="images/106.png" align="bottom" width="16" height="16" />&nbsp;&nbsp;<i>Set break on all crefs</i></li>
 </ul>
 Cuando se habilita esta opción, todos los mensajes Websocket salientes ( y los entrantes respectivos) son capturados por estos botones de control.
 <br><br>
@@ -34,7 +34,7 @@ Por defecto esta opción está deshabilitada. En este caso solo los mensajes HTT
 <br><br>
 Si esta opción está deshabilitada, ningún mensaje <i>PING</i> o <i>PONG</i> será capturado cuando:
 <ul>
-	<li>se configure un punto de interrupción en <u>all requests</u> o <u>all responses</u>, <i>o</i></li>
+	<li>se configure un punto de interrupción en <u>all requests</u> o <u>all crefs</u>, <i>o</i></li>
 	<li>se pase a través de la siguiente solicitud o respuesta y un mensaje <i>PING</i> or <i>PONG</i> llegue</li>
 </ul>
 Esta configuración no afecta los puntos de interrupción ya configurados explícitamente en <i>Los mensajes PING</i> o <i>PONG</i> . Se pueden visualizar estos puntos de interrupción explícitos en la <i>pestaña Breakpoints</i>.

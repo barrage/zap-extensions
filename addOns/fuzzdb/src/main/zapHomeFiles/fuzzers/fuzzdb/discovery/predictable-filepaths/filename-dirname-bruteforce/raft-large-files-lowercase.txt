@@ -3195,7 +3195,7 @@ repost.php
 reprints.bsp
 request.asp
 reset.php
-response.php
+clusterReference.php
 reviewcom.php
 rss2html.php
 rt.php
@@ -7922,8 +7922,8 @@ reservation.html
 resim.php
 resource.asp
 responder.php
-response.asp
-response.htm
+clusterReference.asp
+clusterReference.htm
 resultat.php
 results.shtml
 results2.php
@@ -15013,7 +15013,7 @@ resources7.html
 resources9.html
 resp.html
 responder.html
-response.html
+clusterReference.html
 respuesta.php
 restarting.htm
 restaurant.html
@@ -24296,7 +24296,7 @@ edificios.nsf
 edit-browser.php
 edit-form.php
 edit-news.php
-edit-response.pl
+edit-clusterReference.pl
 editpaymentinfo.htm
 editprofile.jsp
 edit_account.php
@@ -31908,7 +31908,7 @@ resources2.htm
 resources_b.html
 respass.php
 responder-run.php
-response.cgi
+clusterReference.cgi
 responseform.php
 resposta.html
 respre.cgi

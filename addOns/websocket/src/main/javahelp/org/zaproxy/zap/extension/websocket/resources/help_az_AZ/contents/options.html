@@ -22,7 +22,7 @@ If you want to ignore just one specific channel, check out the WebSocket specifi
 In the <i>Qır</i> toolbar, there are two buttons:
 <ul>
 	<li><img src="images/105.png" align="bottom" width="16" height="16" />&nbsp;&nbsp;<i>Set break on all requests</i></li>
-	<li><img src="images/106.png" align="bottom" width="16" height="16" />&nbsp;&nbsp;<i>Set break on all responses</i></li>
+	<li><img src="images/106.png" align="bottom" width="16" height="16" />&nbsp;&nbsp;<i>Set break on all crefs</i></li>
 </ul>
 When you enable this option, then all outgoing (respectively incoming) WebSocket messages are also caught by these control buttons.
 <br><br>
@@ -34,8 +34,8 @@ By default this option is disabled. In this case only HTTP messages are caught, 
 <br><br>
 If this option is disabled no <i>PING</i> or <i>PONG</i> message is caught when you:
 <ul>
-	<li>set a breakpoint on <u>all requests</u> or <u>all responses</u>, <i>or</i></li>
-	<li>step through to the next request or response and a <i>PING</i> or <i>PONG</i> message arrives</li>
+	<li>set a breakpoint on <u>all requests</u> or <u>all crefs</u>, <i>or</i></li>
+	<li>step through to the next request or clusterReference and a <i>PING</i> or <i>PONG</i> message arrives</li>
 </ul>
 This setting does not affect breakpoints that are set explicitly on <i>PING</i> or <i>PONG</i> messages. You can view such explicit breakpoints in the <i>Breakpoints tab</i>.
 

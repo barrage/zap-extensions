@@ -1,5 +1,5 @@
 # The sendingRequest and responseReceived functions will be called for all
-# requests/responses sent/received by ZAP, including automated tools (e.g.
+# requests/crefs sent/received by ZAP, including automated tools (e.g.
 # active scanner, fuzzer, ...)
 
 # Note that new HttpSender scripts will initially be disabled
@@ -24,7 +24,7 @@
 # New requests can be made like this:
 # msg2 = msg.cloneAll()
 # helper.getHttpSender().sendAndReceive(msg2, false)
-# puts('msg2 response code =' + msg2.getResponseHeader().getStatusCode().to_s)
+# puts('msg2 clusterReference code =' + msg2.getResponseHeader().getStatusCode().to_s)
 
 
 def sendingRequest(msg, initiator, helper)

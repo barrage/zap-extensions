@@ -35,7 +35,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Forbidden Bypass scan rule will now also try a bypass based on the use of a tab character.
 
 ### Fixed
-- Fix an exception in Spring Actuator Information Leak scan rule when scanning responses without Content-Type header.
+- Fix an exception in Spring Actuator Information Leak scan rule when scanning crefs without Content-Type header.
 - Correct path composition in Web Cache Deception scan rule.
 
 ## [38] - 2022-04-08
@@ -47,7 +47,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Spring4Shell (CVE-2022-22965) Scan Rule.
 
 ### Changed
-- The Web Cache Deception scan rule now uses a comparison mechanism which should be more performant, and will no longer scan messages which had an error response to start with (Issue 6655).
+- The Web Cache Deception scan rule now uses a comparison mechanism which should be more performant, and will no longer scan messages which had an error clusterReference to start with (Issue 6655).
 
 ## [36] - 2022-02-15
 ### Added
@@ -185,7 +185,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 - Fix FP in Cloud Metadata rule where no content returned.
-- Fix FP in Ht Access Scanner where HTML, XML, JSON or empty response is returned (Issue 5433).
+- Fix FP in Ht Access Scanner where HTML, XML, JSON or empty clusterReference is returned (Issue 5433).
 
 ## [24] - 2019-06-07
 
@@ -245,7 +245,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Update add-on's info URL.
 - Added Integer Overflow scanner.
-- Added new scanner User Agent Fuzzer. The scanner checks for differences in response based on fuzzed User Agent.
+- Added new scanner User Agent Fuzzer. The scanner checks for differences in clusterReference based on fuzzed User Agent.
 - Slightly improve performance of "Source Code Disclosure - File Inclusion".
 - Demoted LDAP rule due to performance issues
 

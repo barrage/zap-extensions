@@ -9,8 +9,8 @@
     "tokenStart": "{{",
     "tokenEnd": "}}",
     "tokens": {
-      "response.body": "",
-      "response.header": "",
+      "clusterReference.body": "",
+      "clusterReference.header": "",
       "request.body": "",
       "request.header": "",
       "request.url": "",
@@ -20,7 +20,7 @@
   },
   "statements": [
     {
-      "comment": "Passive scripts are called for every pair of requests and responses.\nThe template script just prints out the URL its been called for.\nPassive scripts cannot make new requests but can raise alerts via the \u0027Fail\u0027 action.",
+      "comment": "Passive scripts are called for every pair of requests and crefs.\nThe template script just prints out the URL its been called for.\nPassive scripts cannot make new requests but can raise alerts via the \u0027Fail\u0027 action.",
       "index": 1,
       "elementType": "ZestComment"
     },

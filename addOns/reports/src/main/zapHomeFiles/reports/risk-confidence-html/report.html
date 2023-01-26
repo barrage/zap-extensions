@@ -644,7 +644,7 @@
 			</details></td>
 	</tr>
 	<tr>
-		<th scope="row" data-th-text="#{report.template.alertsTable.response}">Response</th>
+		<th scope="row" data-th-text="#{report.template.alertsTable.clusterReference}">Response</th>
 		<td><details
 				data-th-with="responseHeader=${userObject.message.responseHeader}, headerLength=${responseHeader.toString().length}"
 				data-th-open="${headerLength &lt; 2048 || !reportData.isIncludeSection('responseHeader')}">
@@ -658,7 +658,7 @@
 					data-th-text="#{report.template.alertsTable.excludedFromReport}">[Excluded
 					from report]</p>
 				</th-block>
-			</details> <details class="response-body"
+			</details> <details class="clusterReference-body"
 				data-th-with="responseBody=${userObject.message.responseBody}, bodyLength=${responseBody.length}"
 				data-th-open="${bodyLength &lt; 2048 || !reportData.isIncludeSection('responseBody')}">
 				<summary

@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 3 - 2014-09-22
 
-- Check if JavaFX is available before trying to add the response view (Issue 1201).
+- Check if JavaFX is available before trying to add the clusterReference view (Issue 1201).
 - Correctly unload the add-on (Issue 1344).
 
 ## 2 - 2014-04-03

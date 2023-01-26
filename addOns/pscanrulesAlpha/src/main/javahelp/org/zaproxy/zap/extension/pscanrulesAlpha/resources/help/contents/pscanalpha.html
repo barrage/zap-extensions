@@ -22,7 +22,7 @@ Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns
  <li><b>ASP.NET ViewState Integrity:</b> The application does not use a Message Authentication Code (MAC) to protect the integrity of the ASP.NET ViewState, which can be tampered with by a malicious client</li>
  <li><b>Base64 Disclosure:</b> Base64 encoded data was disclosed by the application/web server</li>
 </ul>
-<strong>Note:</strong> At Low Threshold all occurrences within each response will be included.
+<strong>Note:</strong> At Low Threshold all occurrences within each clusterReference will be included.
 <p>
 Latest code: <a href="https://github.com/zaproxy/zap-extensions/blob/main/addOns/pscanrulesAlpha/src/main/java/org/zaproxy/zap/extension/pscanrulesAlpha/Base64Disclosure.java">Base64Disclosure.java</a>
 
@@ -44,7 +44,7 @@ The Cross-Origin-Embedder-Policy (COEP) header <q>prevents a document from
  The Cross-Origin-Resource-Policy (CORP) header allows you
  to control the set of origins that are empowered to include
  a resource. It is a robust defense against attacks like Spectre,
- as it allows browsers to block a given response before it enters
+ as it allows browsers to block a given clusterReference before it enters
  an attacker's process.
 </blockquote>
 For example, an attacker site can include an image tag with an attribute

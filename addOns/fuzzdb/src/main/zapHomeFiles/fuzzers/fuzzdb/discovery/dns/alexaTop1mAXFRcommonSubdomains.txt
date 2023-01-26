@@ -2218,7 +2218,7 @@ sonic
 sds
 sce
 rigel
-response
+clusterReference
 reservas
 reporter
 rabota

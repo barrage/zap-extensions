@@ -87,12 +87,12 @@ Sender scripts. (Issue 5590)
 ## 28 - 2018-11-07
 
 - Display HTTP message also when request statement is selected with keyboard.
-- Update Content-Length of proxied responses (Issue 4613).
+- Update Content-Length of proxied crefs (Issue 4613).
 - Added input for Variable Name in Client Element Assign dialog.
 - Allow to clear the Zest panel.
 - Allow to access the options through Zest panel.
 - Title caps adjustments (Issue 2000).
-- Use selected text when adding assignments from the request/response.
+- Use selected text when adding assignments from the request/clusterReference.
 - Show expression's inverse state in more tree nodes.
 - Correct dialogue titles of client statements.
 - Allow to invoke the context menu in text fields also with keyboard.
@@ -145,7 +145,7 @@ Sender scripts. (Issue 5590)
 ## 22 - 2016-08-05
 
 - Change Sequence scripts to not use Sites tree nodes directly.
-- Correct assertion of response body length when using charset (Issue 2669).
+- Correct assertion of clusterReference body length when using charset (Issue 2669).
 - Require just the parameters defined in the Authentication script (Issue 2734).
 
 ## 21 - 2016-06-02
@@ -189,9 +189,9 @@ Sender scripts. (Issue 5590)
 
 ## 17 - 2014-09-10
 
-- ZAP Issue 600: Add option to include response details or not
+- ZAP Issue 600: Add option to include clusterReference details or not
 - ZAP Issue 658: define which headers to be included by default
-- ZAP Issue 1248: ZestRequest always follow redirects, fails to match redirect responses
+- ZAP Issue 1248: ZestRequest always follow redirects, fails to match redirect crefs
 - ZAP Issue 1327: Support drag and drop
 - ZAP Issue 1329: support commenting in/out statements
 - ZAP Issue 1331: Update selenium jar to fix issue working with firefox 32.0

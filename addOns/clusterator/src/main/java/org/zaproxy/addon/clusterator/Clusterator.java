@@ -29,31 +29,36 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.parosproxy.paros.Constant;
 import org.parosproxy.paros.control.Control;
+import org.parosproxy.paros.db.DatabaseException;
 import org.parosproxy.paros.extension.AbstractPanel;
 import org.parosproxy.paros.extension.ExtensionAdaptor;
 import org.parosproxy.paros.extension.ExtensionHook;
 import org.parosproxy.paros.model.HistoryReference;
+import org.parosproxy.paros.network.HttpMalformedHeaderException;
 import org.parosproxy.paros.view.View;
 import org.zaproxy.addon.clusterator.internal.ClusterConfig;
 import org.zaproxy.zap.extension.ascan.ActiveScan;
 import org.zaproxy.zap.extension.ascan.ActiveScanTableModel;
 import org.zaproxy.zap.extension.ascan.ExtensionActiveScan;
 import org.zaproxy.zap.view.ZapMenuItem;
-import org.zaproxy.zap.view.table.DefaultHistoryReferencesTableEntry;
 
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
+import javax.swing.table.DefaultTableModel;
 
 import static org.zaproxy.addon.clusterator.internal.Clusterer.cluster;
 
@@ -66,6 +71,9 @@ public class Clusterator extends ExtensionAdaptor {
 	// The i18n prefix, by default the package name - defined in one place to make it easier
 	// to copy and change this example
 	protected static final String PREFIX = "clusterator";
+
+	private static final String fuzzersFolder = Constant.getZapHome() + "fuzzers";
+	private static final String genFolder = fuzzersFolder + File.separator + "clusterReports";
 
 	/**
 	 * Relative path (from add-on package) to load add-on resources.
@@ -141,7 +149,7 @@ public class Clusterator extends ExtensionAdaptor {
 		if (statusPanel == null) {
 			statusPanel = new AbstractPanel();
 			statusPanel.setLayout(new BorderLayout());
-			statusPanel.setName("!Clusterator");
+			statusPanel.setName("Clusterer");
 			statusPanel.setIcon(ICON);
 
 			JTextPane pane = new JTextPane();
@@ -161,18 +169,15 @@ public class Clusterator extends ExtensionAdaptor {
 			JTextPane w3 = new JTextPane();
 			JLabel t3 = new JLabel();
 			JTextPane w4 = new JTextPane();
-			JLabel t4 = new JLabel();
 			JTextPane w5 = new JTextPane();
 			JLabel t5 = new JLabel();
 			t1.setText("Response length:");
 			t2.setText("Request length:");
 			t3.setText("Response time:");
-			t4.setText("Body text similarity:");
 			t5.setText("Reflection:");
 			w1.setText("1");
 			w2.setText("0");
 			w3.setText("0");
-			w4.setText("0");
 			w5.setText("0");
 			toolbar.add(t1);
 			toolbar.add(w1);
@@ -180,11 +185,8 @@ public class Clusterator extends ExtensionAdaptor {
 			toolbar.add(w2);
 			toolbar.add(t3);
 			toolbar.add(w3);
-			toolbar.add(t4);
-			toolbar.add(w4);
 			toolbar.add(t5);
 			toolbar.add(w5);
-			//new ClusterConfig(sve iz tih paneova)
 			statusPanel.add(toolbar, BorderLayout.PAGE_START);
 			toolbar.add(clusterActionButton);
 
@@ -194,25 +196,26 @@ public class Clusterator extends ExtensionAdaptor {
 						public void actionPerformed(ActionEvent e) {
 							ActiveScan as = getExtAScan().getLastScan();
 							if (as != null) {
-								int bestk = 10; //TODO ovo automatizirat/maknut
 								ClusterConfig config = null;
 								try {
-									 config = new ClusterConfig(
-											 Double.parseDouble(w1.getText()),
-											 Double.parseDouble(w2.getText()),
-											 Double.parseDouble(w3.getText()),
-											 Double.parseDouble(w4.getText()),
-											 Double.parseDouble(w5.getText())
-									 );
+									config = new ClusterConfig(
+											Double.parseDouble(w1.getText()),
+											Double.parseDouble(w2.getText()),
+											Double.parseDouble(w3.getText()),
+											0,
+											Double.parseDouble(w5.getText())
+									);
 
-								} catch(NumberFormatException ex) {
+								} catch (NumberFormatException ex) {
 									pane.setText("One of the given values isn't a valid number.");
 									return;
 								}
-								String output = generateText(as, bestk, config);
+								String output = null;
+								output = generateText(as, config);
 								pane.setText(output);
-								writeToFile(output, new Date().toString());
-								//TODO output to a file as well
+								writeToFile(output,
+										genFolder + File.separator +
+												new Date() + ".txt");
 							} else {
 								pane.setText("No data available. Please run an ActiveScan.");
 							}
@@ -223,16 +226,28 @@ public class Clusterator extends ExtensionAdaptor {
 	}
 
 	private void writeToFile(String string, String path) {
+//		new File(path.substring(0, path.lastIndexOf(File.separator))).mkdirs();
 		try (Writer writer = new BufferedWriter(
 				new OutputStreamWriter(
 						new FileOutputStream(path), StandardCharsets.UTF_8))) {
 			writer.write(string);
 		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
-	private String generateText(ActiveScan as, int bestk, ClusterConfig config) {
-		ActiveScanTableModel tmodel = as.getMessagesTableModel();
-		return cluster(tmodel, bestk, config);
+
+	public String generateText(ActiveScan as, ClusterConfig config) {
+		List<Integer> ids = as.getMessagesIds();
+		System.out.println("Number of references to be clustered: " + ids.size());
+		List<HistoryReference> hrefs = new ArrayList<>();
+		for (Integer id : ids) {
+			try {
+				hrefs.add(new HistoryReference(id));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return cluster(hrefs, 10, config);
 	}
 
 	private ZapMenuItem getMenuExample() {

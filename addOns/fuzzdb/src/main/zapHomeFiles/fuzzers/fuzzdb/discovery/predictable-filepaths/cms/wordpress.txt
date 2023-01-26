@@ -813,7 +813,7 @@ wp-includes/class-simplepie.php
 wp-includes/class-smtp.php
 wp-includes/class-snoopy.php
 wp-includes/class-wp-admin-bar.php
-wp-includes/class-wp-ajax-response.php
+wp-includes/class-wp-ajax-clusterReference.php
 wp-includes/class-wp-customize-control.php
 wp-includes/class-wp-customize-manager.php
 wp-includes/class-wp-customize-section.php
@@ -1418,9 +1418,9 @@ wp-includes/js/underscore.min.js
 wp-includes/js/utils.js
 wp-includes/js/utils.min.js
 wp-includes/js/wp-ajax.js
-wp-includes/js/wp-ajax-response.dev.js
-wp-includes/js/wp-ajax-response.js
-wp-includes/js/wp-ajax-response.min.js
+wp-includes/js/wp-ajax-clusterReference.dev.js
+wp-includes/js/wp-ajax-clusterReference.js
+wp-includes/js/wp-ajax-clusterReference.min.js
 wp-includes/js/wp-auth-check.js
 wp-includes/js/wp-auth-check.min.js
 wp-includes/js/wp-backbone.js

@@ -202,7 +202,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Correct typo in XCOLD alert description (Issue 3997).
 - Do not set a value in the attack fields.
-- Do not rely on system's charset to create request/response bodies.
+- Do not rely on system's charset to create request/clusterReference bodies.
 
 ## 17 - 2017-11-06
 
@@ -212,7 +212,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 16 - 2017-10-05
 
-- HTTP "Server" response header, report any "Server" header if Threshold is LOW.
+- HTTP "Server" clusterReference header, report any "Server" header if Threshold is LOW.
 - Update Image Location Scanner (passive rule) to leverage 0.4 of the code and 2.10.1 of the library it depends on.
 
 ## 15 - 2017-07-07

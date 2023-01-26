@@ -30,7 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [48] - 2022-09-22
 ### Changed
-- Command Injection Scan Rule: Decode HTML entities in HTML responses before attempting to search for attack validation patterns.
+- Command Injection Scan Rule: Decode HTML entities in HTML crefs before attempting to search for attack validation patterns.
 
 ## [47] - 2022-08-16
 ### Added
@@ -40,10 +40,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Maintenance changes.
 - Updated the External Redirect scan rule to be more accurate.
-- The Reflected XSS scan rule now generates alerts for all content-types when alert threshold set to LOW. If alert threshold MEDIUM or HIGH, alerts are raised for HTML responses only.
+- The Reflected XSS scan rule now generates alerts for all content-types when alert threshold set to LOW. If alert threshold MEDIUM or HIGH, alerts are raised for HTML crefs only.
 
 ### Fixed
-- The Remote File Inclusion scan rule no longer follows redirects before checking the response for content indicating a vulnerability (Issue 5887).
+- The Remote File Inclusion scan rule no longer follows redirects before checking the clusterReference for content indicating a vulnerability (Issue 5887).
 - False positive where Cross Site Scripting payloads are safely rendered in a textarea tag.
 - Unescaped tag end causing Cross Site Scripting rule to throw an exception.
 
@@ -68,7 +68,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [44] - 2022-01-13
 ### Changed
 - Update minimum ZAP version to 2.11.1.
-- The XSS scan rule will try several different payloads if the payload is being reflected outside of any HTML tags (for example in a JSON response body).
+- The XSS scan rule will try several different payloads if the payload is being reflected outside of any HTML tags (for example in a JSON clusterReference body).
 
 ## [43] - 2021-12-06
 ### Added
@@ -163,7 +163,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Improved PowerShell injection control patterns to reduce false positives.
 - Maintenance changes.
-- Issue 5271: Fix SQLi false positive (and potential false negative) when response bodies contain injection strings.
+- Issue 5271: Fix SQLi false positive (and potential false negative) when clusterReference bodies contain injection strings.
 
 ## [33] - 2019-06-07
 
@@ -186,13 +186,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 30 - 2018-02-06
 
-- Issue 1366: Allow SSI detection patterns to include new lines, and pre-check the original response for detection patterns to reduce false positives.<br/>
-- Issue 4168 and 4230: Pre-check the original response for detection patterns.<br/>
+- Issue 1366: Allow SSI detection patterns to include new lines, and pre-check the original clusterReference for detection patterns to reduce false positives.<br/>
+- Issue 4168 and 4230: Pre-check the original clusterReference for detection patterns.<br/>
 
 ## 29 - 2018-01-19
 
-- Issue 3979: Fix reflected XSS in PUT response.
-- Issue 3978: Handle relfected XSS in JSON response.
+- Issue 3979: Fix reflected XSS in PUT clusterReference.
+- Issue 3978: Handle relfected XSS in JSON clusterReference.
 - Issue 4211: Fix false positive in FormatString scanner.
 
 ## 28 - 2017-11-27
@@ -247,7 +247,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 21 - 2015-11-19
 
-- Change Path Traversal scanner to also check HTML responses in decoded form.
+- Change Path Traversal scanner to also check HTML crefs in decoded form.
 - Move Format String from Beta to Release.
 - Improve memory usage when scanning for persistent XSS vulnerabilities (Issue 1974).
 - Fix False Positives in Buffer Overflow.
@@ -261,7 +261,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## 19 - 2015-08-24
 
 - Issue 1146: variable 'param' is used instead of 'value'? in TestCrossSiteScriptV2.
-- Handle cases where the response is the full XSS payload.
+- Handle cases where the clusterReference is the full XSS payload.
 
 ## 18 - 2015-07-30
 
