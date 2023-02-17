@@ -19,11 +19,16 @@
  */
 package org.zaproxy.addon.automation.jobs;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.plot.PlotOrientation;
 import org.parosproxy.paros.Constant;
 import org.parosproxy.paros.control.Control;
+import org.parosproxy.paros.db.DatabaseException;
 import org.parosproxy.paros.model.HistoryReference;
+import org.parosproxy.paros.network.HttpMalformedHeaderException;
+import org.parosproxy.paros.network.HttpMessage;
 import org.zaproxy.addon.automation.AutomationData;
 import org.zaproxy.addon.automation.AutomationEnvironment;
 import org.zaproxy.addon.automation.AutomationJob;
@@ -58,9 +63,13 @@ import static org.zaproxy.addon.automation.jobs.internal.Clusterer.cluster;
 
 public class ClusterResponsesJob extends AutomationJob {
 
+	private static Logger log = LogManager.getLogger(ClusterResponsesJob.class);
+
 	public static final String JOB_NAME = "clusterResponses";
 	private static final String fuzzersFolder = Constant.getZapHome() + "fuzzers";
-	private static final String genFolder = fuzzersFolder + File.separator + "clusterReports";
+	private static final String reportFolder = fuzzersFolder + File.separator + "clusterReports";
+
+	private static final String hrefsFolder = reportFolder + File.separator + "historyReferences";
 	private ExtensionActiveScan extensionActiveScan;
 	private Data data;
 	private Parameters parameters = new Parameters();
@@ -103,9 +112,8 @@ public class ClusterResponsesJob extends AutomationJob {
 			return;
 		}
 		writeToFile(output,
-				genFolder + File.separator + "AF" +
+				reportFolder + File.separator + "AF" +
 						new Date() + ".txt");
-		System.out.println(output);
 		Map<ClusterReference, List<ClusterReference>> data = Clusterer.result;
 		try {
 			plotGraphs(data);
@@ -189,7 +197,7 @@ public class ClusterResponsesJob extends AutomationJob {
 						true,
 						false
 				);
-				OutputStream out = new FileOutputStream(genFolder + File.separator + params[i] + "-" + params[j] + ".png");
+				OutputStream out = new FileOutputStream(reportFolder + File.separator + params[i] + "-" + params[j] + ".png");
 				ChartUtils.writeChartAsPNG(out,
 						chart,
 						800,
@@ -201,7 +209,7 @@ public class ClusterResponsesJob extends AutomationJob {
 
 	public String generateText(ActiveScan as, ClusterConfig config) {
 		List<Integer> ids = as.getMessagesIds();
-		System.out.println("Number of references to be clustered: " + ids.size());
+		log.debug("Number of references to be clustered: " + ids.size());
 		List<HistoryReference> hrefs = new ArrayList<>();
 		for (Integer id : ids) {
 			try {
@@ -210,8 +218,24 @@ public class ClusterResponsesJob extends AutomationJob {
 				e.printStackTrace();
 			}
 		}
+		try {
+			writeHrefsToFiles(hrefs);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		return cluster(hrefs, 10, config);
 	}
+
+	private void writeHrefsToFiles(List<HistoryReference> hrefs) throws HttpMalformedHeaderException, DatabaseException {
+		for(HistoryReference href : hrefs){
+			HttpMessage msg = href.getHttpMessage();
+			StringBuilder sb = new StringBuilder();
+			sb.append(msg.getRequestBody()).append("\n");
+			sb.append(msg.getResponseBody()).append("\n");
+			writeToFile(sb.toString(), hrefsFolder + File.separator + href.getHistoryId() + ".txt");
+		}
+	}
+
 
 	private void writeToFile(String string, String path) {
 		new File(path.substring(0, path.lastIndexOf(File.separator))).mkdirs();
